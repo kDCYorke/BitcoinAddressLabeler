@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script type="text/javascript">
+		safari.application.addEventListener("contextmenu",handleContextMenu,false);
+		safari.application.addEventListener("command",performCommand,false);
+		
+		function handleContextMenu(event) {
+			if(event.userInfo!=null) {
+				event.contextMenu.appendContextMenuItem("addLabel","Add label for "+event.userInfo);
+			}
+		}
+		
+		function performCommand(event) {
+			if(event.command==="addLabel") {
+				event.currentTarget.activeBrowserWindow.activeTab.page.dispatchMessage("addLabel",event.userInfo[0]);
+			}
+		}
+		</script>
+	</head>
+	<body></body>
+</html>
