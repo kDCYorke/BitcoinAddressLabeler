@@ -1,5 +1,4 @@
-function showMatches() {
-	// var matches=$('body').text().replace(/[13n][1-9A-Za-z][^OIl]{20,40}/,"REPLACED");
+function updateTXList() {
 	$('.txlist-address span').html(function(index,html) {
 		var mod=html;
 		for(i=0;i<localStorage.length;i++) {
@@ -40,7 +39,7 @@ function handleMessage(event) {
 MutationObserver = window.WebKitMutationObserver;
 
 var observer = new MutationObserver(function(mutations, observer) {
-  showMatches();
+  updateTXList();
 });
 
 	// define what element should be observed by the observer
