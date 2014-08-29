@@ -1,9 +1,13 @@
 function updateTXList() {
 	$('.txlist-address span').html(function(index,html) {
 		var mod=html;
+		var added=mod.search("btcLabel");
+		if(added>-1) {
+			return;
+		}
 		for(i=0;i<localStorage.length;i++) {
 			var key=localStorage.key(i);
-			mod=mod.replace(key,localStorage.getItem(key));
+			mod=mod.replace(key,"<span class=\"btcLabel\" title=\""+key+"\">"+localStorage.getItem(key)+"</span>");
 		}
 		return mod;
 	});
@@ -47,9 +51,7 @@ function handleMessage(event) {
 		}
 		else {
 			localStorage.setItem(event.message,label);
-			$('.txlist-address span').html(function(index,html) {
-				return html.replace(event.message,label);
-			});
+			updateTxList();
 			updateAddressList();
 		}
 	}
