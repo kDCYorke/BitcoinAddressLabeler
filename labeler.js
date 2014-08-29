@@ -11,6 +11,7 @@ function updateTXList() {
 		}
 		return mod;
 	});
+	$('.txlist-address span span.btcLabel').tooltip({placement:"bottom"});
 }
 
 function updateAddressList() {
