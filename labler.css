@@ -1,3 +1,6 @@
 small.btcLabel {
 	display: block;
 }
+.txlist-address span .tooltip-inner {
+	max-width: none !important;
+}
