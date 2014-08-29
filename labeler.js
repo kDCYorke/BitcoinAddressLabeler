@@ -1,9 +1,31 @@
 function updateTXList() {
 	$('.txlist-address span').html(function(index,html) {
 		var mod=html;
+		var added=mod.search("btcLabel");
+		if(added>-1) {
+			return;
+		}
 		for(i=0;i<localStorage.length;i++) {
 			var key=localStorage.key(i);
-			mod=mod.replace(key,localStorage.getItem(key));
+			mod=mod.replace(key,"<span class=\"btcLabel\" title=\""+key+"\">"+localStorage.getItem(key)+"</span>");
+		}
+		return mod;
+	});
+	$('.txlist-address span span.btcLabel').tooltip({placement:"bottom"});
+}
+
+function updateAddressList() {
+	$('.address-list .list-group-item').html(function(index,html) {
+		var mod=html;
+		var added=mod.search("<small class=\"btcLabel\">");
+		if(added>-1) {
+			mod=mod.substring(0,added);
+		}
+		for(i=0;i<localStorage.length;i++) {
+			var key=localStorage.key(i);
+			if(html.search(key)>-1) {
+				mod=mod+"<small class=\"btcLabel\">"+localStorage.getItem(key)+"</small>";	
+			}
 		}
 		return mod;
 	});
@@ -26,12 +48,12 @@ function handleMessage(event) {
 		}
 		else if(label==="") {
 			localStorage.removeItem(event.message);
+			updateAddressList();
 		}
 		else {
 			localStorage.setItem(event.message,label);
-			$('.txlist-address span').html(function(index,html) {
-				return html.replace(event.message,label);
-			});
+			updateTxList();
+			updateAddressList();
 		}
 	}
 }
@@ -40,6 +62,7 @@ MutationObserver = window.WebKitMutationObserver;
 
 var observer = new MutationObserver(function(mutations, observer) {
   updateTXList();
+	updateAddressList();
 });
 
 	// define what element should be observed by the observer

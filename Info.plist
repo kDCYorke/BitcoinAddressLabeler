@@ -7,7 +7,7 @@
 	<key>Builder Version</key>
 	<string>10600.1.8</string>
 	<key>CFBundleDisplayName</key>
-	<string>Bitcoin Address Labeler</string>
+	<string>myTrezor Address Labeler</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.teknonsys.bitcoinaddresslabeler</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -15,7 +15,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Global Page</key>
@@ -32,9 +32,16 @@
 			<key>Start</key>
 			<array>
 				<string>jquery-2.1.1.min.js</string>
+				<string>bootstrap-3.2.0.min.js</string>
 			</array>
 		</dict>
+		<key>Stylesheets</key>
+		<array>
+			<string>labler.css</string>
+		</array>
 	</dict>
+	<key>Description</key>
+	<string>Add labels to addresses in myTrezor. Not affiliated with SatoshiLabs.</string>
 	<key>DeveloperIdentifier</key>
 	<string>62GK6X43FY</string>
 	<key>ExtensionInfoDictionaryVersion</key>
@@ -53,5 +60,7 @@
 			<string>Some</string>
 		</dict>
 	</dict>
+	<key>Update Manifest URL</key>
+	<string>http://public.teknonsys.com/balUpdate.plist</string>
 </dict>
 </plist>
