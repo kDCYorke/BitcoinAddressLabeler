@@ -34,6 +34,10 @@
 				<string>jquery-2.1.1.min.js</string>
 			</array>
 		</dict>
+		<key>Stylesheets</key>
+		<array>
+			<string>labler.css</string>
+		</array>
 	</dict>
 	<key>DeveloperIdentifier</key>
 	<string>62GK6X43FY</string>
