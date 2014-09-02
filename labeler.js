@@ -1,4 +1,4 @@
-function updateTXList() {
+function updateTxList() {
 	$('.txlist-address span').html(function(index,html) {
 		var mod=html;
 		var added=mod.search("btcLabel");
@@ -81,7 +81,7 @@ if (typeof String.prototype.startsWith != 'function') {
 MutationObserver = window.WebKitMutationObserver;
 
 var observer = new MutationObserver(function(mutations, observer) {
-  updateTXList();
+  updateTxList();
 	updateAddressList();
 });
 
