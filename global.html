@@ -7,13 +7,16 @@
 		
 		function handleContextMenu(event) {
 			if(event.userInfo!=null) {
-				event.contextMenu.appendContextMenuItem("addLabel","Add label for "+event.userInfo);
+				if(event.userInfo.address!=null) {
+					event.contextMenu.appendContextMenuItem("addLabel","Add label for "+event.userInfo.address);
+				}
+				event.contextMenu.appendContextMenuItem("saveAddresses","Save bitcoin addresses");
 			}
 		}
 		
 		function performCommand(event) {
 			if(event.command==="addLabel") {
-				event.currentTarget.activeBrowserWindow.activeTab.page.dispatchMessage("addLabel",event.userInfo[0]);
+				event.currentTarget.activeBrowserWindow.activeTab.page.dispatchMessage("addLabel",event.userInfo.address[0]);
 			}
 			else if(event.command==="saveAddresses") {
 				event.currentTarget.activeBrowserWindow.activeTab.page.dispatchMessage("saveAddresses",null);

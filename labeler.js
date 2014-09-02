@@ -36,8 +36,11 @@ safari.self.addEventListener("message",handleMessage,false);
 	
 function handleContextMenu(event) {
 	var addr=window.getSelection().toString().match(/^[13nm][1-9A-Za-z][^OIl]{20,40}$/);
-	if(addr!=null)
-	  safari.self.tab.setContextMenuEventUserInfo(event,addr);
+	var userInfo={};
+	if(addr!=null) {
+		userInfo.address=addr;
+	}
+	safari.self.tab.setContextMenuEventUserInfo(event,userInfo);
 }
 
 function handleMessage(event) {
