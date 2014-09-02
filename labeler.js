@@ -56,6 +56,23 @@ function handleMessage(event) {
 			updateAddressList();
 		}
 	}
+	else if(event.name==="saveAddresses") {
+		var a={};
+		for(i=0;i<localStorage.length;i++) {
+			var key=localStorage.key(i);
+			if(key.startsWith('trezor')) {
+				continue;
+			}
+			a[key]=localStorage.getItem(key);
+		}
+		window.open("data:application/json;charset=utf-8,"+encodeURIComponent(JSON.stringify(a,null,2)),"_blank");
+	}
+}
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.slice(0, str.length) == str;
+  };
 }
 	
 MutationObserver = window.WebKitMutationObserver;

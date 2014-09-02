@@ -18,6 +18,17 @@
 	<string>2</string>
 	<key>Chrome</key>
 	<dict>
+		<key>Context Menu Items</key>
+		<array>
+			<dict>
+				<key>Command</key>
+				<string>saveAddresses</string>
+				<key>Identifier</key>
+				<string>com.teknonsys.bitcoinaddresslabeler.save</string>
+				<key>Title</key>
+				<string>Save bitcoin addresses</string>
+			</dict>
+		</array>
 		<key>Global Page</key>
 		<string>global.html</string>
 	</dict>
