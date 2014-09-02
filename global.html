@@ -15,6 +15,9 @@
 			if(event.command==="addLabel") {
 				event.currentTarget.activeBrowserWindow.activeTab.page.dispatchMessage("addLabel",event.userInfo[0]);
 			}
+			else if(event.command==="saveAddresses") {
+				event.currentTarget.activeBrowserWindow.activeTab.page.dispatchMessage("saveAddresses",null);
+			}
 		}
 		</script>
 	</head>
